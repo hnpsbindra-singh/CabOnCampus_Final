@@ -1,0 +1,26 @@
+GET     /student/me [DONE]
+        -> View Logged-in Student Profile
+
+PUT     /student/edit-profile [DONE]
+        -> Update Logged-in Student Profile
+
+GET     /student/drivers[DONE]
+        -> View All Verified Drivers
+
+POST    /student/ride/create [DONE]
+        -> Create a New Ride Request
+
+GET     /student/ride/current [DONE]
+        -> View Current Active Ride (includes driver details if assigned)
+
+GET     /student/ride/{rideId} [DONE]
+        -> View Complete Ride Details (includes driver details if assigned)
+
+GET     /student/ride/history [DONE]
+        -> View Ride History
+
+PATCH   /student/ride/complete/{rideId} [DONE]
+        -> Mark Ride as Completed (Student Only)
+
+DELETE  /student/ride/cancel/{rideId} [DONE]
+        -> Cancel Ride

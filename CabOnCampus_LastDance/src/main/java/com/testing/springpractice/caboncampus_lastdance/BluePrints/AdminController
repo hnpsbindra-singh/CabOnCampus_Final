@@ -1,0 +1,20 @@
+GET     /admin/users                    [DONE]
+        -> View All Users (Students + Drivers + Admins)
+        -> Optional query param: ?role=STUDENT / DRIVER / ADMIN
+        -> Returns: List of user details
+
+POST    /admin/users                    [DONE]
+        -> Admin adds a new User / Driver / Admin directly
+        -> No OTP verification required
+        -> verified = true, enabled = true set automatically
+        -> Role specified in request body (STUDENT / DRIVER / ADMIN)
+
+PATCH   /admin/users/{userId}/suspend   [DONE]
+        -> Suspend a User / Driver / Admin
+        -> Sets enabled = false
+        -> User is immediately locked out of all @VerifiedUser endpoints
+
+PATCH   /admin/users/{userId}/unsuspend [PENDING]
+        -> Unsuspend a User / Driver / Admin
+        -> Sets enabled = true
+        -> User regains access to all @VerifiedUser endpoints

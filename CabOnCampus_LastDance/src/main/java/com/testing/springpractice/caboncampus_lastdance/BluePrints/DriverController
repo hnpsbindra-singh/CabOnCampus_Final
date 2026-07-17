@@ -1,0 +1,23 @@
+GET     /driver/me                          [DONE]
+        -> View Logged-in Driver Profile
+
+PATCH   /driver/me                          [DONE]
+        -> Update Driver Profile (phoneNumber, vehicleNumber)
+
+GET     /driver/rides/pending               [DONE]
+        -> View All PENDING Ride Requests from Students
+        -> Driver picks one to accept
+
+PATCH   /driver/ride/{rideId}/accept        [DONE]
+        -> Accept a Pending Ride
+        -> Sets driver = current driver
+        -> Sets status = ACCEPTED
+        -> Throws if ride is not PENDING
+        -> Throws if ride already has a driver
+
+GET     /driver/ride/{rideId}                [DONE]
+        -> View ride with {rideId} which driver accepted earlier
+        -> Includes student details
+
+GET     /driver/ride/history                [DONE]
+        -> View All Rides by this Driver

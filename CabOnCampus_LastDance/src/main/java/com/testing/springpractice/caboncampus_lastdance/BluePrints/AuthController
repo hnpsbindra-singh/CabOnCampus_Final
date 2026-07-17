@@ -1,0 +1,15 @@
+POST    /auth/register [DONE]
+        -> Register Student
+
+POST    /auth/verify-email [DONE]
+        -> Verify Email OTP
+
+POST    /auth/login [DONE]
+        -> Login User
+
+POST    /auth/send-reset-otp [DONE]
+        -> Send OTP for Forgot Password
+
+PUT     /auth/reset-password [DONE]
+        -> Reset Password
+
