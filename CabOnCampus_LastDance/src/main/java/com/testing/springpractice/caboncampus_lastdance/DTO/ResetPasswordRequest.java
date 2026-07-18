@@ -14,10 +14,6 @@ import lombok.*;
 public class ResetPasswordRequest {
     @NotBlank
     @Email
-    @Pattern(
-            regexp = "^[A-Za-z0-9._%+-]+@thapar\\.edu$",
-            message = "Email must be a valid @thapar.edu email address"
-    )
     private String username;
     @NotBlank
     private String otp;
