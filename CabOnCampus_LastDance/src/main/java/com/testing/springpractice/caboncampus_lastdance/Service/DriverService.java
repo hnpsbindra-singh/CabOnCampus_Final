@@ -23,11 +23,13 @@ public class DriverService {
     private final UserRepository userRepository;
     private final RidesRepository ridesRepository;
     private final ProjectUtils projectUtils;
+    private final EmailService emailService;
 
-    public DriverService(UserRepository userRepository, RidesRepository ridesRepository, ProjectUtils projectUtils) {
+    public DriverService(UserRepository userRepository, RidesRepository ridesRepository, ProjectUtils projectUtils, EmailService emailService) {
         this.userRepository = userRepository;
         this.ridesRepository = ridesRepository;
         this.projectUtils = projectUtils;
+        this.emailService = emailService;
     }
 
     public DriverProfileDetails getMyDetails() {
@@ -50,6 +52,8 @@ public class DriverService {
 
     public String acceptARide(UUID rideId) {
         Users user = projectUtils.getCurrent();
+        String student = ridesRepository.getUserByRideId(rideId);
+        emailService.sendBooking(user, student);
         int rows = ridesRepository.acceptARide(user, rideId, RideStatus.ACCEPTED, RideStatus.PENDING);
         if (rows==0) throw new RuntimeException("Invalid Request");
         return "Updation Successful";
